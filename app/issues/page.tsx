@@ -1,4 +1,3 @@
-import React from "react";
 import { Table } from "@radix-ui/themes";
 import prisma from "@/prisma/client";
 import { IssueStatusBadge, Link } from "@/app/components";
@@ -54,4 +53,5 @@ const Issues = async () => {
   );
 };
 
+export const dynamic = "force-dynamic";
 export default Issues;
