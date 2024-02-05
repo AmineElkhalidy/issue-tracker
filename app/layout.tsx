@@ -23,6 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
+      <head>
+        <link rel="shortcut icon" href="./bug.svg" type="image/x-icon" />
+      </head>
       <body>
         <Theme appearance="light" accentColor="purple">
           <Navbar />
