@@ -1,14 +1,19 @@
-import { PencilSquareIcon } from "@heroicons/react/24/solid";
-import { Button } from "@radix-ui/themes";
-import Link from "next/link";
+import { IssueForm } from "@/app/components";
+import { notFound } from "next/navigation";
+import prisma from "@/prisma/client";
 
-const EditIssueButton = ({ issueId }: { issueId: number }) => {
-  return (
-    <Button>
-      <PencilSquareIcon />
-      <Link href={`/issues/${issueId}/edit`}>Edit Issue</Link>
-    </Button>
-  );
+interface Props {
+  params: { id: string };
+}
+
+const EditIssue = async ({ params }: Props) => {
+  const issue = await prisma.issue.findUnique({
+    where: { id: parseInt(params.id) },
+  });
+
+  if (!issue) notFound();
+
+  return <IssueForm issue={issue} />;
 };
 
-export default EditIssueButton;
+export default EditIssue;
