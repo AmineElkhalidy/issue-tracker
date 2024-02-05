@@ -4,3 +4,4 @@ export { default as IssueStatusBadge } from "./IssueStatusBadge";
 export { default as Spinner } from "./Spinner";
 export { default as Skeleton } from "./Skeleton";
 export { default as IssueForm } from "./IssueForm";
+export { default as IssueFormSkeleton } from "./IssueFormSkeleton";
