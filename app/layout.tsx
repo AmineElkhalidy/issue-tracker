@@ -5,6 +5,7 @@ import "./globals.css";
 import Navbar from "./Navbar";
 import "@radix-ui/themes/styles.css";
 import { Theme, ThemePanel, Container } from "@radix-ui/themes";
+import AuthProvider from "./auth/Provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,13 +28,15 @@ export default function RootLayout({
         <link rel="shortcut icon" href="./bug.svg" type="image/x-icon" />
       </head>
       <body>
-        <Theme appearance="light" accentColor="purple">
-          <Navbar />
-          <main className="p-5">
-            <Container>{children}</Container>
-          </main>
-          {/* <ThemePanel /> */}
-        </Theme>
+        <AuthProvider>
+          <Theme appearance="light" accentColor="purple">
+            <Navbar />
+            <main className="p-5">
+              <Container>{children}</Container>
+            </main>
+            {/* <ThemePanel /> */}
+          </Theme>
+        </AuthProvider>
       </body>
     </html>
   );
